@@ -60,6 +60,8 @@ input[type=text]:focus,input[type=email]:focus,textarea:focus{outline:none;borde
 .other-text{margin-top:6px;margin-left:27px;display:none;}
 .other-text.show{display:block;}
 
+.access-section{margin-top:34px;padding-top:24px;border-top:1px solid var(--tan);}
+.access-title{font-family:Georgia,serif;font-size:20px;font-weight:normal;color:var(--charcoal);margin:0 0 6px;}
 .skip-toggle{background:var(--tan);border-radius:8px;padding:14px 16px;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
 .skip-toggle input{width:18px;height:18px;accent-color:var(--charcoal);}
 .skip-toggle label{font-size:13px;font-weight:700;color:var(--charcoal);cursor:pointer;}
@@ -216,6 +218,28 @@ body{padding-bottom:52px;}
   <div class="q-block">
     <label class="q-label">Do you or those in your home have any allergies or other health considerations we should be aware of?</label>
     <textarea data-field="allergies"></textarea>
+  </div>
+
+  <div class="access-section">
+    <h3 class="access-title">Accessibility + Accommodations</h3>
+    <p class="section-intro">We want your home to work for everyone who lives in or visits it, today and in the years ahead. Share only what you're comfortable with. Your answers help us plan ADA-inspired features and accommodations from the very start of design.</p>
+
+    <div class="q-block">
+      <label class="q-label">Does anyone who lives in or regularly visits your home have mobility, accessibility, or other physical needs we should plan for?</label>
+      <div id="accessNeedsOptions"></div>
+    </div>
+    <div class="q-block">
+      <label class="q-label">Which of these apply to anyone in your household or frequent guests? (check all that apply)</label>
+      <div id="accessConsiderationsOptions"></div>
+    </div>
+    <div class="q-block">
+      <label class="q-label">Which accessibility features would you like us to consider for your project? (check all that apply)</label>
+      <div id="accessFeaturesOptions"></div>
+    </div>
+    <div class="q-block">
+      <label class="q-label">Is there anything else about how you or others move through and use your home that would help us design for your needs?</label>
+      <textarea data-field="accessNotes"></textarea>
+    </div>
   </div>
   <div class="q-block">
     <label class="q-label">Is your home part of an HOA? If we will be doing any work requiring HOA approval, please list the HOA manager's contact below.</label>
@@ -941,6 +965,10 @@ function initOptions(){
   // Style + Design
   buildOptions('bestDaysOptions','bestDays',["Monday","Tuesday","Wednesday","Thursday","Friday","No Preference"], true, "Other", false);
   buildOptions('bestTimesOptions','bestTimes',["Morning (8:00 AM - 11:00 AM)","Lunch/Midday (11:00 AM - 1:00 PM)","Afternoon (1:00 PM - 5:00 PM)","No Preference"], true, "Other", false);
+  // Accessibility + Accommodations
+  buildOptions('accessNeedsOptions','accessNeeds',["No","Yes","Not right now, but we'd like to plan ahead"], false, "Other", false);
+  buildOptions('accessConsiderationsOptions','accessConsiderations',["Uses a wheelchair, walker, or cane","Difficulty with stairs","Limited reach, grip, or strength","Low vision","Hearing loss","Sensory sensitivities (light, sound, or texture)","Memory or cognitive needs","Planning to age in place","Temporary need (injury or surgery recovery)"]);
+  buildOptions('accessFeaturesOptions','accessFeatures',["Step-free entry","Wider doorways and hallways","Main-floor primary suite","Zero-entry / curbless shower","Grab bars or blocking for future grab bars","Shower seat or bench","Handheld shower","Comfort-height toilet","Roll-under sink or vanity","Lever-style door handles and faucets","Lower or pull-down storage","Slip-resistant flooring","Brighter lighting and higher contrast finishes","Handrails on both sides of stairs","Smart home or voice controls","Elevator or stair lift prep","Not sure yet, we'd like recommendations"]);
   buildOptions('inspirationOptions','inspiration',["Friends","HGTV","Instagram","Magazines","Pinterest","TikTok"]);
   buildOptions('shopOptions','shopPlaces',["CB2","Crate and Barrel","Home Goods","Local Boutiques (Hutch Home Co.)","McGee + Co.","Pottery Barn","Restoration Hardware","Target"]);
   buildOptions('colorsLoveOptions','colorsLove',["Black","Blues","Blush or Pinks","Browns","Greens","Ivory","Reds","White","Yellows or Oranges"]);
